@@ -47,6 +47,14 @@ public class PlayerController : MonoBehaviour
         count++;
         SetCountText();
         }
+        if(other.gameObject.CompareTag("Enemy")){
+            if (count>0)
+            {
+            count--;
+            SetCountText();
+            }
+            other.gameObject.transform.position=new Vector4(9,1,9);
+        }
 
     }
 
