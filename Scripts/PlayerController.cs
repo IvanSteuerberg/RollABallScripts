@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour
             count--;
             SetCountText();
             }
-            other.gameObject.transform.position=new Vector4(9,1,9);
+            other.gameObject.transform.position=new Vector3(9,1,9);
+            gameObject.transform.position=new Vector3(0,1,0);
         }
 
     }
