@@ -38,7 +38,17 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate() {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-        rb.AddForce(movement * speed);    
+        rb.AddForce(movement * speed);
+
+        // recogemos los datos del acelerometro
+        Vector3 dir = Vector3.zero;
+        dir.x = -Input.acceleration.y;
+        dir.z = Input.acceleration.x;
+        if (dir.sqrMagnitude > 1)
+            dir.Normalize();
+        
+        dir *= Time.deltaTime;
+        transform.Translate(dir * speed);    
     }
 
     private void OnTriggerEnter(Collider other) {
