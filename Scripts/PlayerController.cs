@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * speed);
 
         // recogemos los datos del acelerometro
+        /*
+        //La pelota vuela y funciona de una forma extraña
         Vector3 dir = Vector3.zero;
         dir.x = -Input.acceleration.y;
         dir.z = Input.acceleration.x;
@@ -48,7 +50,11 @@ public class PlayerController : MonoBehaviour
             dir.Normalize();
         
         dir *= Time.deltaTime;
-        transform.Translate(dir * speed);    
+        transform.Translate(dir * speed);
+        */                  
+        //La pelota se mueve de forma normal
+        Vector3 movement2 = new Vector3 (Input.acceleration.x, 0.0f, Input.acceleration.y);
+        rb.AddForce (movement2 * speed);
     }
 
     private void OnTriggerEnter(Collider other) {
